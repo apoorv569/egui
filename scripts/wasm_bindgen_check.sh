@@ -8,11 +8,11 @@ then
   echo "Skipping setup_web.sh"
 else
   echo "Running setup_web.sh"
-  ./sh/setup_web.sh
+  ./scripts/setup_web.sh
 fi
 
 CRATE_NAME="egui_demo_app"
-FEATURES="glow,http,persistence,screen_reader"
+FEATURES="glow,http,persistence,web_screen_reader"
 
 # This is required to enable the web_sys clipboard API which eframe web uses
 # https://rustwasm.github.io/wasm-bindgen/api/web_sys/struct.Clipboard.html

@@ -86,7 +86,7 @@ impl super::View for Scrolling {
 
 fn huge_content_lines(ui: &mut egui::Ui) {
     ui.label(
-        "A lot of rows, but only the visible ones are layed out, so performance is still good:",
+        "A lot of rows, but only the visible ones are laid out, so performance is still good:",
     );
     ui.add_space(4.0);
 
@@ -112,7 +112,7 @@ fn huge_content_painter(ui: &mut egui::Ui) {
     ui.add_space(4.0);
 
     let font_id = TextStyle::Body.resolve(ui.style());
-    let row_height = ui.fonts().row_height(&font_id) + ui.spacing().item_spacing.y;
+    let row_height = ui.fonts(|f| f.row_height(&font_id)) + ui.spacing().item_spacing.y;
     let num_rows = 10_000;
 
     ScrollArea::vertical()

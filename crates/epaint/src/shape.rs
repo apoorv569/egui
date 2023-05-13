@@ -322,8 +322,8 @@ impl Shape {
                 bezier_shape.points[1] += delta;
                 bezier_shape.points[2] += delta;
             }
-            Shape::CubicBezier(cubie_curve) => {
-                for p in &mut cubie_curve.points {
+            Shape::CubicBezier(cubic_curve) => {
+                for p in &mut cubic_curve.points {
                     *p += delta;
                 }
             }
@@ -625,7 +625,7 @@ pub struct TextShape {
     /// Top left corner of the first character.
     pub pos: Pos2,
 
-    /// The layed out text, from [`Fonts::layout_job`].
+    /// The laid out text, from [`Fonts::layout_job`].
     pub galley: Arc<Galley>,
 
     /// Add this underline to the whole text.
@@ -768,7 +768,7 @@ pub struct ViewportInPixels {
     /// Viewport width in physical pixels.
     pub width_px: f32,
 
-    /// Viewport width in physical pixels.
+    /// Viewport height in physical pixels.
     pub height_px: f32,
 }
 
@@ -808,7 +808,7 @@ pub struct PaintCallback {
     /// `glow` backend requires that callback be an `egui_glow::CallbackFn` while the `wgpu`
     /// backend requires a `egui_wgpu::CallbackFn`.
     ///
-    /// If the type cannnot be downcast to the type expected by the current backend the callback
+    /// If the type cannot be downcast to the type expected by the current backend the callback
     /// will not be drawn.
     ///
     /// The rendering backend is responsible for first setting the active viewport to
